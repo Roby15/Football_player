@@ -1,0 +1,21 @@
+[2.392s] Invoking command in '/home/roby/turtlebot3_ws/build/ball_detection': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data
+[3.088s] running develop
+[3.439s] running egg_info
+[3.439s] writing ball_detection.egg-info/PKG-INFO
+[3.440s] writing dependency_links to ball_detection.egg-info/dependency_links.txt
+[3.440s] writing entry points to ball_detection.egg-info/entry_points.txt
+[3.440s] writing requirements to ball_detection.egg-info/requires.txt
+[3.440s] writing top-level names to ball_detection.egg-info/top_level.txt
+[3.442s] reading manifest file 'ball_detection.egg-info/SOURCES.txt'
+[3.442s] writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+[3.448s] running build_ext
+[3.448s] Creating /home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages/ball-detection.egg-link (link to .)
+[3.449s] Installing ball_detector script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.449s] Installing ball_follower script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.450s] 
+[3.450s] Installed /home/roby/turtlebot3_ws/build/ball_detection
+[3.450s] warning: symlink_data: setup script did not provide a directory for 'share/ball_detectionpackage.xml' -- installing right in '/home/roby/turtlebot3_ws/install/ball_detection'
+[3.450s] 
+[3.450s] error: can't copy '/home/roby/turtlebot3_ws/build/ball_detection/share/ball_detectionpackage.xml': doesn't exist or not a regular file
+[3.450s] running symlink_data
+[3.493s] Invoked command in '/home/roby/turtlebot3_ws/build/ball_detection' returned '1': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data

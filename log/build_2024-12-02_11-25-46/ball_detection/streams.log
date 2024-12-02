@@ -1,0 +1,22 @@
+[2.374s] Invoking command in '/home/roby/turtlebot3_ws/build/ball_detection': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data
+[2.981s] running develop
+[3.356s] running egg_info
+[3.356s] writing ball_detection.egg-info/PKG-INFO
+[3.356s] writing dependency_links to ball_detection.egg-info/dependency_links.txt
+[3.356s] writing entry points to ball_detection.egg-info/entry_points.txt
+[3.356s] writing requirements to ball_detection.egg-info/requires.txt
+[3.356s] writing top-level names to ball_detection.egg-info/top_level.txt
+[3.359s] reading manifest file 'ball_detection.egg-info/SOURCES.txt'
+[3.360s] writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+[3.367s] running build_ext
+[3.367s] Creating /home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages/ball-detection.egg-link (link to .)
+[3.368s] Installing ball_detector script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.368s] Installing ball_follower script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.368s] 
+[3.368s] Installed /home/roby/turtlebot3_ws/build/ball_detection
+[3.368s] running symlink_data
+[3.368s] creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index/ament_package
+[3.368s] symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/resource/ball_detection -> /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index/ament_package
+[3.369s] creating /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection/launch
+[3.369s] error: can't copy '/home/roby/turtlebot3_ws/build/ball_detection/launch/ball_following_launch.py': doesn't exist or not a regular file
+[3.394s] Invoked command in '/home/roby/turtlebot3_ws/build/ball_detection' returned '1': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data

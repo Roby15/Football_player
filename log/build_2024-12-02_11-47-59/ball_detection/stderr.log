@@ -1,0 +1,3 @@
+warning: symlink_data: setup script did not provide a directory for 'share/ball_detectionpackage.xml' -- installing right in '/home/roby/turtlebot3_ws/install/ball_detection'
+
+error: can't copy '/home/roby/turtlebot3_ws/build/ball_detection/share/ball_detectionpackage.xml': doesn't exist or not a regular file

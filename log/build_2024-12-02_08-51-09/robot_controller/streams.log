@@ -1,0 +1,17 @@
+[2.006s] Invoking command in '/home/roby/turtlebot3_ws/build/robot_controller': PYTHONPATH=/home/roby/turtlebot3_ws/build/robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/robot_controller/build --no-deps symlink_data
+[2.553s] running develop
+[2.865s] running egg_info
+[2.865s] writing robot_controller.egg-info/PKG-INFO
+[2.865s] writing dependency_links to robot_controller.egg-info/dependency_links.txt
+[2.865s] writing entry points to robot_controller.egg-info/entry_points.txt
+[2.865s] writing requirements to robot_controller.egg-info/requires.txt
+[2.866s] writing top-level names to robot_controller.egg-info/top_level.txt
+[2.867s] reading manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.868s] writing manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.872s] running build_ext
+[2.872s] Creating /home/roby/turtlebot3_ws/install/robot_controller/lib/python3.10/site-packages/robot-controller.egg-link (link to .)
+[2.873s] Installing test script to /home/roby/turtlebot3_ws/install/robot_controller/lib/robot_controller
+[2.873s] 
+[2.873s] Installed /home/roby/turtlebot3_ws/build/robot_controller
+[2.873s] running symlink_data
+[2.896s] Invoked command in '/home/roby/turtlebot3_ws/build/robot_controller' returned '0': PYTHONPATH=/home/roby/turtlebot3_ws/build/robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/robot_controller/build --no-deps symlink_data
