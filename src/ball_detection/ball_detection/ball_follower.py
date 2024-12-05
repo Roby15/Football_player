@@ -1,75 +1,75 @@
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Point
+from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Point
 
 class BallFollower(Node):
     def __init__(self):
         super().__init__('ball_follower')
         self.subscription = self.create_subscription(
-            Point, 
-            'ball_position',  # Subscribe to ball position
-            self.ball_position_callback,
+            Bool,
+            'ball_detected',
+            self.ball_detected_callback,
             10
         )
         self.publisher = self.create_publisher(Twist, 'cmd_vel', 10)
+        self.position_subscription = self.create_subscription(
+            Point,
+            'ball_position',
+            self.ball_position_callback,
+            10
+        )
         
-        self.is_centered = False
+        self.ball_centered = False
+        self.ball_position = Point()
+
+    def ball_detected_callback(self, msg):
+        self.ball_detected = msg.data
+        if self.ball_detected:
+            self.center_on_ball()
+        else:
+            self.stop_movement()
 
     def ball_position_callback(self, msg):
-        # Get ball position (x, y)
-        ball_x = msg.x
-        ball_y = msg.y
+        # Update the ball position when it's detected
+        self.ball_position = msg
 
-        # Center the robot on the ball (if necessary)
-        if not self.is_centered:
-            self.center_on_ball(ball_x, ball_y)
-
-        # Once centered, move towards the ball
-        if self.is_centered:
-            self.move_towards_ball(ball_x, ball_y)
-
-    def center_on_ball(self, ball_x, ball_y):
-        # Create a Twist message to control movement
+    def center_on_ball(self):
         twist = Twist()
 
-        # Center the robot based on ball_x and ball_y
-        if ball_x < 300:  # Ball is to the left (you may need to adjust these values)
-            twist.angular.z = 0.5  # Rotate right
-        elif ball_x > 340:  # Ball is to the right
-            twist.angular.z = -0.5  # Rotate left
-        else:
-            twist.angular.z = 0.0  # Stop rotating
-            self.is_centered = True  # Once the ball is centered, stop rotating
+        # Check if the ball is detected and center the robot based on the ball's x position
+        if self.ball_position.x != 0:  # If there's a valid ball position
+            if self.ball_position.x < 300:  # Ball is to the left
+                twist.angular.z = 0.5  # Rotate right
+            elif self.ball_position.x > 340:  # Ball is to the right
+                twist.angular.z = -0.5  # Rotate left
+            else:
+                twist.angular.z = 0.0  # Centered on the ball
 
-        # Publish twist message to adjust robot's rotation
-        self.publisher.publish(twist)
+            # Publish the twist to center the robot on the ball
+            self.publisher.publish(twist)
 
-    def move_towards_ball(self, ball_x, ball_y):
-        # Create a Twist message to control movement
-        twist = Twist()
-        
-        # Move forward based on the ball's position
-        twist.linear.x = 0.2  # Move towards the ball
-        self.publisher.publish(twist)
+            # Check if the robot is centered
+            if 300 <= self.ball_position.x <= 340:  # Ball is centered
+                self.ball_centered = True
+                self.move_towards_ball()
 
-        # Simulate shooting the ball after a brief moment
-        self.shoot_ball()
+    def move_towards_ball(self):
+        if self.ball_centered:
+            twist = Twist()
+            twist.linear.x = 0.2  # Move forward towards the ball
 
-    def shoot_ball(self):
-        # Simulate the kick action by moving the robot forward quickly for a short time
-        twist = Twist()
-        twist.linear.x = 0.5  # Move quickly forward to simulate a kick
-        self.publisher.publish(twist)
+            # Stop if the ball is close enough (based on the ball's y-coordinate)
+            if self.ball_position.y < 100:  # Threshold for the y position (adjust as necessary)
+                twist.linear.x = 0.0  # Stop if we're close to the ball
+                self.stop_movement()
 
-        # Stop after the "kick"
-        self.stop_movement()
+            self.publisher.publish(twist)
 
     def stop_movement(self):
-        # Stop moving the robot if the ball is not detected
-        twist = Twist()
+        twist = Twist()  # Stop the robot by publishing zero velocities
         self.publisher.publish(twist)
-        self.is_centered = False
 
 def main(args=None):
     rclpy.init(args=args)
