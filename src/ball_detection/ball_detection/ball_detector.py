@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
+from std_msgs.msg import Bool
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
@@ -9,53 +10,58 @@ from geometry_msgs.msg import Point
 class BallDetector(Node):
     def __init__(self):
         super().__init__('ball_detector')
-        self.bridge = CvBridge()
         self.subscription = self.create_subscription(
             Image,
-            '/camera/image_raw',  # Adjust this topic to match your camera topic
+            '/camera/image_raw',  # Adjust this to match your camera topic
             self.image_callback,
             10
         )
-        self.ball_position_publisher = self.create_publisher(Point, 'ball_position', 10)
-        self.get_logger().info('Ball detector node has started')
+        
+        self.publisher = self.create_publisher(Bool, 'ball_detected', 10)
+        self.bridge = CvBridge()
 
     def image_callback(self, msg):
-        # Convert the ROS Image message to OpenCV format
-        try:
-            cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-        except Exception as e:
-            self.get_logger().error(f'Error converting image: {e}')
-            return
+        # Convert the ROS image message to OpenCV format
+        cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
 
-        # Convert to grayscale
+        # Convert the image to grayscale (important for detecting the white and black ball)
         gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
 
-        # Apply a blur to the image and then detect the circles (soccer ball)
-        blurred = cv2.GaussianBlur(gray, (15, 15), 0)
-        circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, dp=1, minDist=30, param1=50, param2=30, minRadius=10, maxRadius=100)
+        # Use Hough Circle Transform to detect the football (a circular object)
+        circles = cv2.HoughCircles(
+            gray, 
+            cv2.HOUGH_GRADIENT, dp=1.2, minDist=30,
+            param1=50, param2=30, minRadius=10, maxRadius=50
+        )
 
         if circles is not None:
-            circles = np.round(circles[0, :]).astype("int")
-            for (x, y, r) in circles:
-                # Draw the circle in the output image
-                cv2.circle(cv_image, (x, y), r, (0, 255, 0), 4)
-                cv2.rectangle(cv_image, (x - 5, y - 5), (x + 5, y + 5), (0, 128, 255), -1)
+            # Convert the circle parameters to integers
+            circles = np.uint16(np.around(circles))
 
-                # Publish the ball position as floats
-                ball_position = Point()
-                ball_position.x = float(x)  # Convert to float
-                ball_position.y = float(y)  # Convert to float
-                self.ball_position_publisher.publish(ball_position)
+            # Draw the detected circle on the image
+            for i in circles[0, :]:
+                center = (i[0], i[1])  # Circle center
+                radius = i[2]  # Circle radius
+                # Draw the circle outline
+                cv2.circle(cv_image, center, radius, (0, 255, 0), 3)
+                # Draw the center of the circle
+                cv2.circle(cv_image, center, 3, (0, 0, 255), 3)
 
-        # Optionally display the result
-        cv2.imshow("Ball Detection", cv_image)
+            # Publish the ball detection status
+            self.publisher.publish(Bool(data=True))  # Ball detected
+        else:
+            # Publish that no ball is detected
+            self.publisher.publish(Bool(data=False))  # No ball detected
+
+        # Display the image with the circle around the detected ball
+        cv2.imshow("Ball Detector", cv_image)
         cv2.waitKey(1)
 
-def main():
-    rclpy.init()
-    ball_detector = BallDetector()
-    rclpy.spin(ball_detector)
-    ball_detector.destroy_node()
+def main(args=None):
+    rclpy.init(args=args)
+    node = BallDetector()
+    rclpy.spin(node)
+    node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

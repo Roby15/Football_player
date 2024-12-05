@@ -1,4 +1,5 @@
 [console_scripts]
 ball_detector = ball_detection.ball_detector:main
+ball_finder = ball_detection.ball_finder:main
 ball_follower = ball_detection.ball_follower:main
 

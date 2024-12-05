@@ -1,0 +1,19 @@
+[2.191s] Invoking command in '/home/roby/turtlebot3_ws/build/ball_detection': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data
+[2.799s] running develop
+[3.143s] running egg_info
+[3.143s] writing ball_detection.egg-info/PKG-INFO
+[3.143s] writing dependency_links to ball_detection.egg-info/dependency_links.txt
+[3.143s] writing entry points to ball_detection.egg-info/entry_points.txt
+[3.144s] writing requirements to ball_detection.egg-info/requires.txt
+[3.144s] writing top-level names to ball_detection.egg-info/top_level.txt
+[3.145s] reading manifest file 'ball_detection.egg-info/SOURCES.txt'
+[3.146s] writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+[3.151s] running build_ext
+[3.151s] Creating /home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages/ball-detection.egg-link (link to .)
+[3.151s] Installing ball_detector script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.151s] Installing ball_finder script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.152s] Installing ball_follower script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[3.152s] 
+[3.152s] Installed /home/roby/turtlebot3_ws/build/ball_detection
+[3.152s] running symlink_data
+[3.176s] Invoked command in '/home/roby/turtlebot3_ws/build/ball_detection' returned '0': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data

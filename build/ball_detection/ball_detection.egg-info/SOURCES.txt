@@ -3,6 +3,7 @@ setup.cfg
 setup.py
 ball_detection/__init__.py
 ball_detection/ball_detector.py
+ball_detection/ball_finder.py
 ball_detection/ball_follower.py
 ball_detection.egg-info/PKG-INFO
 ball_detection.egg-info/SOURCES.txt

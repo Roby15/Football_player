@@ -26,6 +26,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': ['ball_detector = ball_detection.ball_detector:main',
-            'ball_follower = ball_detection.ball_follower:main',],
+            'ball_follower = ball_detection.ball_follower:main',
+            'ball_finder=ball_detection.ball_finder:main'],
     },
 )

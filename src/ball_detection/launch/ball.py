@@ -9,8 +9,11 @@ def generate_launch_description():
             output='screen',
         ),
         Node(
-            package='ball_detection',  # Replace with your package name
-            executable='ball_follower',
+            package='ball_detection',
+            executable='ball_finder',
             output='screen',
+
         ),
+        
+
     ])
