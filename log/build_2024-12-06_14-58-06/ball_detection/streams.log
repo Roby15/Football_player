@@ -1,0 +1,28 @@
+[1.969s] Invoking command in '/home/roby/turtlebot3_ws/build/ball_detection': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data
+[2.540s] running develop
+[2.860s] running egg_info
+[2.861s] creating ball_detection.egg-info
+[2.861s] writing ball_detection.egg-info/PKG-INFO
+[2.861s] writing dependency_links to ball_detection.egg-info/dependency_links.txt
+[2.861s] writing entry points to ball_detection.egg-info/entry_points.txt
+[2.861s] writing requirements to ball_detection.egg-info/requires.txt
+[2.861s] writing top-level names to ball_detection.egg-info/top_level.txt
+[2.862s] writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+[2.864s] reading manifest file 'ball_detection.egg-info/SOURCES.txt'
+[2.864s] writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+[2.869s] running build_ext
+[2.869s] Creating /home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages/ball-detection.egg-link (link to .)
+[2.870s] Installing ball_detector script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[2.870s] Installing ball_finder script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[2.870s] Installing ball_follower script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+[2.871s] 
+[2.871s] Installed /home/roby/turtlebot3_ws/build/ball_detection
+[2.871s] running symlink_data
+[2.871s] creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index
+[2.871s] creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index
+[2.871s] creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index/packages
+[2.871s] symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/resource/ball_detection -> /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index/packages
+[2.872s] symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/package.xml -> /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection
+[2.872s] creating /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection/launch
+[2.872s] symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/launch/ball.py -> /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection/launch
+[2.903s] Invoked command in '/home/roby/turtlebot3_ws/build/ball_detection' returned '0': PYTHONPATH=/home/roby/turtlebot3_ws/build/ball_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/ball_detection/build --no-deps symlink_data

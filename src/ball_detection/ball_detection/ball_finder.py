@@ -23,7 +23,7 @@ class BallFinder(Node):
     def search_for_ball(self):
         # Send movement commands to search for the ball (e.g., rotating in place)
         twist = Twist()
-        twist.angular.z = 0.5  # Rotate in place
+        twist.angular.z = 1.0  # Rotate in place
         self.publisher.publish(twist)
 
     def stop_search(self):

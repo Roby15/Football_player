@@ -1,0 +1,24 @@
+[1.948s] Invoking command in '/home/roby/turtlebot3_ws/build/robot_controller': PYTHONPATH=/home/roby/turtlebot3_ws/build/robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/robot_controller/build --no-deps symlink_data
+[2.494s] running develop
+[2.817s] running egg_info
+[2.817s] creating robot_controller.egg-info
+[2.817s] writing robot_controller.egg-info/PKG-INFO
+[2.817s] writing dependency_links to robot_controller.egg-info/dependency_links.txt
+[2.818s] writing entry points to robot_controller.egg-info/entry_points.txt
+[2.818s] writing requirements to robot_controller.egg-info/requires.txt
+[2.818s] writing top-level names to robot_controller.egg-info/top_level.txt
+[2.818s] writing manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.819s] reading manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.820s] writing manifest file 'robot_controller.egg-info/SOURCES.txt'
+[2.824s] running build_ext
+[2.824s] Creating /home/roby/turtlebot3_ws/install/robot_controller/lib/python3.10/site-packages/robot-controller.egg-link (link to .)
+[2.825s] Installing test script to /home/roby/turtlebot3_ws/install/robot_controller/lib/robot_controller
+[2.825s] 
+[2.825s] Installed /home/roby/turtlebot3_ws/build/robot_controller
+[2.826s] running symlink_data
+[2.826s] creating /home/roby/turtlebot3_ws/install/robot_controller/share/ament_index
+[2.826s] creating /home/roby/turtlebot3_ws/install/robot_controller/share/ament_index/resource_index
+[2.826s] creating /home/roby/turtlebot3_ws/install/robot_controller/share/ament_index/resource_index/packages
+[2.826s] symbolically linking /home/roby/turtlebot3_ws/build/robot_controller/resource/robot_controller -> /home/roby/turtlebot3_ws/install/robot_controller/share/ament_index/resource_index/packages
+[2.826s] symbolically linking /home/roby/turtlebot3_ws/build/robot_controller/package.xml -> /home/roby/turtlebot3_ws/install/robot_controller/share/robot_controller
+[2.855s] Invoked command in '/home/roby/turtlebot3_ws/build/robot_controller' returned '0': PYTHONPATH=/home/roby/turtlebot3_ws/build/robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roby/turtlebot3_ws/install/robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/roby/turtlebot3_ws/build/robot_controller/build --no-deps symlink_data

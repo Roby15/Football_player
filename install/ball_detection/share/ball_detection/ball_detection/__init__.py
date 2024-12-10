@@ -1,1 +1,0 @@
-/home/roby/turtlebot3_ws/build/ball_detection/ball_detection/__init__.py

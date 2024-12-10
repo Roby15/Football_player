@@ -1,3 +1,0 @@
-[console_scripts]
-test = robot_controller.move:main
-

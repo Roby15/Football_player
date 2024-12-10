@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating ball_detection.egg-info
+writing ball_detection.egg-info/PKG-INFO
+writing dependency_links to ball_detection.egg-info/dependency_links.txt
+writing entry points to ball_detection.egg-info/entry_points.txt
+writing requirements to ball_detection.egg-info/requires.txt
+writing top-level names to ball_detection.egg-info/top_level.txt
+writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+reading manifest file 'ball_detection.egg-info/SOURCES.txt'
+writing manifest file 'ball_detection.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/roby/turtlebot3_ws/install/ball_detection/lib/python3.10/site-packages/ball-detection.egg-link (link to .)
+Installing ball_detector script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+Installing ball_finder script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+Installing ball_follower script to /home/roby/turtlebot3_ws/install/ball_detection/lib/ball_detection
+
+Installed /home/roby/turtlebot3_ws/build/ball_detection
+running symlink_data
+creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index
+creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index
+creating /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index/packages
+symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/resource/ball_detection -> /home/roby/turtlebot3_ws/install/ball_detection/share/ament_index/resource_index/packages
+symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/package.xml -> /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection
+creating /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection/launch
+symbolically linking /home/roby/turtlebot3_ws/build/ball_detection/launch/ball.py -> /home/roby/turtlebot3_ws/install/ball_detection/share/ball_detection/launch

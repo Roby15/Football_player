@@ -24,36 +24,41 @@ class BallDetector(Node):
         # Convert the ROS image message to OpenCV format
         cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
 
-        # Convert the image to grayscale (important for detecting the white and black ball)
-        gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+        # Convert the image to HSV color space
+        hsv = cv2.cvtColor(cv_image, cv2.COLOR_BGR2HSV)
 
-        # Use Hough Circle Transform to detect the football (a circular object)
-        circles = cv2.HoughCircles(
-            gray, 
-            cv2.HOUGH_GRADIENT, dp=1.2, minDist=30,
-            param1=50, param2=30, minRadius=10, maxRadius=50
-        )
+        # Define the range for orange color in HSV
+        lower_orange = np.array([7, 0, 0])  # Slightly darker orange
+        upper_orange = np.array([180, 255, 255]) # Adjust if needed
 
-        if circles is not None:
-            # Convert the circle parameters to integers
-            circles = np.uint16(np.around(circles))
+        # Create a mask for the orange color
+        mask = cv2.inRange(hsv, lower_orange, upper_orange)
 
-            # Get the coordinates of the center of the first detected circle
-            center = (circles[0, 0][0], circles[0, 0][1])  # (x, y)
-            radius = circles[0, 0][2]
+        # Reduce noise with morphological operations
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
 
-            # Draw a green circle around the detected ball
-            cv2.circle(cv_image, center, radius, (0, 255, 0), 3)  # Green circle outline
-            cv2.circle(cv_image, center, 3, (0, 0, 255), 3)  # Red center point
+        # Detect contours in the mask
+        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-            # Publish the coordinates of the ball
-            ball_position = Point()
-            ball_position.x = float(center[0])  # Convert to float
-            ball_position.y = float(center[1])  # Convert to float
-            ball_position.z = float(radius)    # Convert to float
+        if contours:
+            # Find the largest contour
+            largest_contour = max(contours, key=cv2.contourArea)
+            ((x, y), radius) = cv2.minEnclosingCircle(largest_contour)
 
-            self.publisher.publish(Bool(data=True))  # Ball detected
-            self.position_publisher.publish(ball_position)
+            if radius > 10:  # Minimum size of the ball to detect
+                # Draw a circle around the detected ball
+                cv2.circle(cv_image, (int(x), int(y)), int(radius), (0, 255, 0), 3)  # Green circle outline
+                cv2.circle(cv_image, (int(x), int(y)), 3, (0, 0, 255), 3)  # Red center point
+
+                # Publish the coordinates of the ball
+                ball_position = Point()
+                ball_position.x = float(x)
+                ball_position.y = float(y)
+                ball_position.z = float(radius)
+
+                self.publisher.publish(Bool(data=True))  # Ball detected
+                self.position_publisher.publish(ball_position)
         else:
             # Publish that no ball is detected
             self.publisher.publish(Bool(data=False))  # No ball detected
